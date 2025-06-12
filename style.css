@@ -1,0 +1,446 @@
+/* Reset básico e Fontes */
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte para textos */
+    margin: 0;
+    padding: 0;
+    background-color: #FDF8F5; /* Fundo off-white suave */
+    color: #36454F; /* Cinza Carvão para texto principal */
+    line-height: 1.7; /* Maior espaçamento entre linhas para leitura */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Títulos - Playfair Display */
+h1, h2 {
+    font-family: 'Playfair Display', serif; /* Fonte elegante para títulos */
+    color: #004d40; /* VERDE ESCURO para títulos */
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.08);
+}
+
+h1 {
+    font-size: 4.5em; /* Título principal grande e impactante */
+    letter-spacing: 2px;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 3.2em;
+    margin-top: 60px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after { /* Linha decorativa moderna com degradê de verde e rosa */
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, #2E8B57, #FF8C94); /* Degradê Verde/Rosa Salmão */
+    margin: 15px auto 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Hero Section (Seção de Introdução) */
+.hero-section {
+    background: linear-gradient(to bottom, #D4EDDA, #FFC0CB); /* Degradê suave de Verde Claro para Rosa Claro */
+    padding: 120px 20px 80px; /* Mais padding superior */
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #36454F; /* Cor do texto no hero */
+}
+
+.hero-content .subtitle {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #004d40; /* Verde Escuro para subtítulo */
+    margin-top: 25px;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+}
+
+/* Controle de Áudio - Botão Interativo */
+.audio-control {
+    margin-top: 40px;
+    z-index: 10;
+}
+
+.audio-control button {
+    background-color: #004d40; /* VERDE ESCURO para o botão */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 35px; /* Mais arredondado */
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre ícone e texto */
+}
+
+.audio-control button:hover {
+    background-color: #00332B; /* Tom de verde mais escuro no hover */
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.audio-control button i {
+    font-size: 1.1em; /* Tamanho do ícone */
+}
+
+/* Container Principal do Conteúdo */
+.container {
+    max-width: 1000px; /* Um pouco mais largo para acomodar o carrossel */
+    margin: 60px auto;
+    padding: 0 30px;
+}
+
+/* Seções da História - Com Layout Flexível */
+.story-chapter {
+    display: flex;
+    flex-direction: row; /* Texto à esquerda, carrossel à direita */
+    align-items: center;
+    gap: 50px; /* Espaçamento entre texto e carrossel */
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 50px;
+    margin-bottom: 70px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #FFC0CB; /* Borda suave de Rosa Claro */
+    transition: transform 0.4s ease-in-out;
+    opacity: 0; /* Para o efeito de fade-in */
+    transform: translateY(30px); /* Para o efeito de slide-up */
+}
+
+.story-chapter.reveal { /* Classe adicionada por JS para animar */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.story-chapter.reverse {
+    flex-direction: row-reverse; /* Carrossel à esquerda, texto à direita */
+}
+
+.chapter-content {
+    flex: 1; /* Ocupa o espaço restante */
+    min-width: 300px; /* Largura mínima para o texto */
+    text-align: left; /* Texto alinhado à esquerda */
+}
+
+.chapter-content h2 {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #004d40; /* Verde Escuro para subtítulos de capítulo */
+}
+
+.chapter-content h2::after {
+    margin: 10px 0 0 0;
+}
+
+.chapter-content .description {
+    font-size: 1.1em;
+    color: #556B8D;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.chapter-content .special-phrase {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #FF8C94; /* Rosa Salmão para frases especiais */
+    margin-top: 30px;
+    font-style: italic;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    line-height: 1.4;
+}
+
+/* Carrossel de Fotos (Galeria Deslizante) */
+.carousel-container {
+    flex: 1.2;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    height: 400px;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 15px;
+    box-sizing: border-box;
+    border: 3px solid #FFC0CB; /* Borda Rosa Claro */
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #004d40; /* Verde Escuro para botões de navegação */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.carousel-nav:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #00332B;
+}
+
+.carousel-nav.prev {
+    left: 15px;
+}
+
+.carousel-nav.next {
+    right: 15px;
+}
+
+/* --- Mensagem Final --- */
+.final-message-section {
+    background-color: #FFFAFA;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 80px;
+    margin-bottom: 100px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 2px solid #FF8C94; /* Borda sólida e suave Rosa Salmão */
+    opacity: 0;
+    transform: translateY(30px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.final-message-section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.final-message-section h2 {
+    color: #004d40;
+    margin-bottom: 20px;
+}
+
+.click-instruction {
+    font-size: 1.1em;
+    color: #556B8D;
+    margin-bottom: 30px;
+    font-style: italic;
+    animation: bounceText 2s infinite ease-in-out;
+}
+
+@keyframes bounceText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* --- Estilos da Caixa de Presente e Girassol (AGORA É UM BOTÃO) --- */
+.gift-box {
+    position: relative;
+    width: 120px;
+    height: 100px;
+    background-color: #E9B44C; /* Cor da caixa (amarelo mostarda) */
+    border-radius: 10px 10px 5px 5px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    transform-origin: top center;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    outline: none;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.gift-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gift-box .lid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #FFD700; /* Cor da tampa (amarelo ouro) */
+    border-radius: 10px 10px 0 0;
+    transform-origin: bottom center;
+    transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.gift-box .box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #E9B44C;
+    border-radius: 0 0 5px 5px;
+}
+
+.sunflower-icon {
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+    font-size: 80px;
+    line-height: 1;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.8s;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Classes para ANIMAR NO CLIQUE */
+.gift-box.opened .lid {
+    transform: rotateX(-110deg) translateY(-10px);
+}
+
+.gift-box.opened .sunflower-icon {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    transition-delay: 0.5s;
+}
+
+.final-message-section p.signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #004d40; /* Verde Escuro para a assinatura */
+    margin-top: 30px;
+    line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #FFC0CB; /* Fundo do rodapé em Rosa Claro */
+    color: #708090;
+    font-size: 0.95em;
+    margin-top: 100px;
+    box-shadow: 0 -3px 15px rgba(0,0,0,0.05);
+}
+
+/* Responsividade Aprimorada */
+@media (max-width: 992px) {
+    .story-chapter {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .story-chapter.reverse {
+        flex-direction: column;
+    }
+    .chapter-content {
+        text-align: center;
+    }
+    .chapter-content h2::after {
+        margin: 10px auto 0;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3.5em;
+    }
+    h2 {
+        font-size: 2.5em;
+    }
+    .hero-section {
+        padding: 90px 15px 60px;
+    }
+    .hero-content .subtitle {
+        font-size: 1.2em;
+    }
+    .audio-control button {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+    .container {
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    .story-chapter {
+        padding: 35px;
+        margin-bottom: 50px;
+    }
+    .chapter-content .description {
+        font-size: 1em;
+    }
+    .chapter-content .special-phrase {
+        font-size: 1.6em;
+    }
+    .carousel-container {
+        height: 300px;
+    }
+    .carousel-nav {
+        font-size: 1.2em;
+        padding: 8px 12px;
+    }
+    .final-message-section {
+        padding: 40px;
+    }
+    .final-message-section p {
+        font-size: 1.1em;
+    }
+    .final-message-section .signature {
+        font-size: 1.8em;
+    }
+    footer {
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.8em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .hero-section {
+        padding: 70px 10px 50px;
+    }
+    .hero-content .subtitle {
+        font-size: 1.1em;
+    }
+    .audio-control button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .story-chapter {
+        padding: 25px;
+    }
+    .carousel-container {
+        height: 250px;
+    }
+    .final-message-section .signature {
+        font-size: 1.8em;
+    }
+}
